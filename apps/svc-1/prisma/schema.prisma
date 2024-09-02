@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  mulies    Muly[]   @relation(name: "MuliesOnUser")
+  myMuly    Muly?    @relation(name: "myMuly")
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model Muly {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  myUser    User?    @relation(name: "myMuly", fields: [id], references: [id])
+  id        String?  @unique
+  updatedAt DateTime @updatedAt
+  user      User?    @relation(name: "MuliesOnUser", fields: [userId], references: [id])
+  userId    String?
+}
