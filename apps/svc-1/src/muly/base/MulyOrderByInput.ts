@@ -50,7 +50,7 @@ class MulyOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  id?: SortOrder;
+  myUserId?: SortOrder;
 
   @ApiProperty({
     required: false,

@@ -24,8 +24,8 @@ model User {
 model Muly {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
-  myUser    User?    @relation(name: "myMuly", fields: [id], references: [id])
-  id        String?  @unique
+  myUser    User?    @relation(name: "myMuly", fields: [myUserId], references: [id])
+  myUserId  String?  @unique
   updatedAt DateTime @updatedAt
   user      User?    @relation(name: "MuliesOnUser", fields: [userId], references: [id])
   userId    String?
