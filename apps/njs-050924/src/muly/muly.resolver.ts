@@ -11,4 +11,12 @@ export class MulyResolver {
   ): Promise<string> {
     return this.service.MulyActionOne(args);
   }
+
+  @graphql.Query(() => Boolean)
+  async MulyActionTwo(
+    @graphql.Args("args")
+    args: boolean
+  ): Promise<boolean> {
+    return this.service.MulyActionTwo(args);
+  }
 }
