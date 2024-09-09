@@ -20,7 +20,7 @@ export class MulyController {
   })
   async MulyActionOne(
     @common.Body()
-    body: boolean
+    body: string
   ): Promise<string> {
         return this.service.MulyActionOne(body);
       }
