@@ -6,4 +6,7 @@ export class MulyService {
   async MulyActionOne(args: string): Promise<string> {
     throw new Error("Not implemented");
   }
+  async MulyActionTwo(args: boolean): Promise<boolean> {
+    throw new Error("Not implemented");
+  }
 }

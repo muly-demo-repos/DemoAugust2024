@@ -20,8 +20,25 @@ export class MulyController {
   })
   async MulyActionOne(
     @common.Body()
-    body: string
+    body: boolean
   ): Promise<string> {
         return this.service.MulyActionOne(body);
+      }
+
+  @common.Get("/:id/muly-action-two")
+  @swagger.ApiOkResponse({
+    type: Boolean
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException
+  })
+  async MulyActionTwo(
+    @common.Body()
+    body: boolean
+  ): Promise<boolean> {
+        return this.service.MulyActionTwo(body);
       }
 }
